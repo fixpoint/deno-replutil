@@ -3,7 +3,7 @@
 [![npm](http://img.shields.io/badge/available%20on-npm-lightgrey.svg?logo=npm&logoColor=white)](https://www.npmjs.com/package/replutil)
 [![deno land](http://img.shields.io/badge/available%20on-deno.land/x-lightgrey.svg?logo=deno)](https://deno.land/x/replutil)
 [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/replutil/mod.ts)
-[![Test](https://github.com/lambdalisue/deno-replutil/workflows/Test/badge.svg)](https://github.com/lambdalisue/deno-replutil/actions?query=workflow%3ATest)
+[![Test](https://github.com/fixpoint/deno-replutil/workflows/Test/badge.svg)](https://github.com/fixpoint/deno-replutil/actions?query=workflow%3ATest)
 [![npm version](https://badge.fury.io/js/replutil.svg)](https://badge.fury.io/js/replutil)
 
 REPL (Read-eval-print loop) utilities.
