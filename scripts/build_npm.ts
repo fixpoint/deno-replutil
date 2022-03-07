@@ -18,6 +18,15 @@ await build({
   shims: {
     // see JS docs for overview and more options
     deno: true,
+    customDev: [
+      {
+        package: {
+          name: "web-streams-polyfill",
+          version: "^3.2.0",
+        },
+        globalNames: ["TransformStream"],
+      },
+    ],
   },
   package: {
     // package.json properties
