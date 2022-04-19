@@ -8,19 +8,20 @@ const proc = Deno.run({
   stdin: "piped",
   stdout: "piped",
 });
-const receiver = new Receiver(proc.stdout);
+const receiver = new Receiver(proc.stdout, {
+  pattern: /.* % /,
+});
 const sender = new Sender(proc.stdin);
 
-await receiver.wait(/login: $/);
+await receiver.recv(/login: $/);
 await sender.send(`${username}\n`);
 
-await receiver.wait(/Password:$/);
+await receiver.recv(/Password:$/);
 await sender.send(`${password}\n`);
 
-const prompt = /.* % /;
-await receiver.wait(prompt);
+await receiver.recv();
 await sender.send("ls -al\n");
-const received = await receiver.recv(prompt);
+const received = await receiver.recv();
 await sender.send("exit\n");
 await proc.status();
 proc.close();

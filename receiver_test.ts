@@ -35,30 +35,6 @@ class Channel implements Deno.Reader, Deno.Writer, Deno.Closer {
   }
 }
 
-Deno.test("Receiver.wait()", async (t) => {
-  await t.step("waits until the pattern is received", async () => {
-    const reader = new Channel();
-    const receiver = new Receiver(reader);
-
-    let complete = false;
-
-    const producer = async () => {
-      await streams.writeAll(reader, encoder.encode("Hello world\n"));
-      await streams.writeAll(reader, encoder.encode("Hello world\n"));
-      await streams.writeAll(reader, encoder.encode("Hello world\n"));
-      await delay(100);
-      complete = true;
-      await streams.writeAll(reader, encoder.encode("john@debian$ "));
-      reader.close();
-    };
-    const consumer = async () => {
-      await receiver.wait(/.+\$ $/);
-      assertEquals(complete, true);
-    };
-    await Promise.all([producer(), consumer()]);
-  });
-});
-
 Deno.test("Receiver.recv()", async (t) => {
   await t.step("receives data until the pattern is received", async () => {
     const reader = new Channel();
