@@ -1,4 +1,4 @@
-import { writeAll } from "https://deno.land/std@0.128.0/streams/mod.ts";
+import { writeAll } from "https://deno.land/std@0.221.0/streams/mod.ts";
 
 export class Sender {
   #writer: Deno.Writer;

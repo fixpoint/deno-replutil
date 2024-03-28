@@ -1,4 +1,4 @@
-import { delay } from "https://deno.land/std@0.128.0/async/mod.ts";
+import { delay } from "https://deno.land/std@0.221.0/async/mod.ts";
 
 const DEFAULT_PATTERN = /\n/m;
 
